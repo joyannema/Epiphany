@@ -313,22 +313,13 @@ export default function SynapseApp() {
 
   const toggleAttachPhoto = () => setAttachedPhoto((v) => !v);
 
-  const saveNote = () => {
-    if (!transcript.trim()) return;
+  const saveNote = async () => {
+    if (!transcript.trim() || isProcessing) return;
+
     if (typeTimer.current) clearInterval(typeTimer.current);
 
-    if (voiceAppendMode) {
-      const appended = transcript;
-      setNotes((prev) => prev.map((n) => (n.id === activeNoteId ? { ...n, text: (n.text ? n.text + " " : "") + appended } : n)));
-      setOverlayOpen(false);
-      setIsRecording(false);
-      setTranscript("");
-      setAttachedPhoto(false);
-      setVoiceAppendMode(false);
-      return;
-    }
-
     const id = Date.now();
+
     const newNote: Note = {
       id,
       category: classifiedNote?.category ?? "uncategorized",
@@ -338,17 +329,55 @@ export default function SynapseApp() {
       time: "now",
       colorIdx: 0,
       organizing: true,
-      isTodo: classifiedNote?.is_todo === true,
-      todoText: classifiedNote?.title ?? transcript,
     };
+
+
+    // Update UI immediately
+    setNotes((prev) => [newNote, ...prev]);
+
+
+    // Save to MongoDB
+    try {
+      const response = await fetch("/api/notes", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: profile.username,
+          category: newNote.category,
+          title: newNote.title,
+          text: newNote.text,
+          tags: newNote.tags,
+        }),
+      });
+
+
+      if (!response.ok) {
+        throw new Error("Failed to save note");
+      }
+
+      console.log("Saved note to DB");
+
+    } catch (err) {
+      console.error("Database save failed:", err);
+    }
+
+
     setOverlayOpen(false);
     setIsRecording(false);
     setTranscript("");
     setAttachedPhoto(false);
-    console.log("Saving note with category:", newNote.category);
-    setNotes((prev) => [newNote, ...prev]);
+
+
     setTimeout(() => {
-      setNotes((prev) => prev.map((n) => (n.id === id ? { ...n, organizing: false } : n)));
+      setNotes((prev) =>
+        prev.map((n) =>
+          n.id === id
+            ? { ...n, organizing: false }
+            : n
+        )
+      );
     }, 1400);
   };
 
