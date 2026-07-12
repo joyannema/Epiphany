@@ -11,4 +11,4 @@ npm install
 npm run dev
 ```
 
-Open http://localhost:3000 — best viewed at a mobile viewport (~375-430px wide).
+Open http://localhost:3000 
