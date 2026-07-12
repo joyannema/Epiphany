@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useState, type CSSProperties, type FormEvent } from "react";
-import PaperDecor from "../PaperDecor";
 import { PAPER_BG, PAPER_BG_SIZE } from "@/lib/data";
 
 export interface AuthUser {
@@ -65,7 +64,7 @@ export default function SigninScreen({ onSignIn }: { onSignIn: (user: AuthUser) 
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        padding: "64px 34px 0",
+        padding: "0 34px",
         boxSizing: "border-box",
         backgroundColor: "oklch(0.93 0.015 75)",
         backgroundImage: PAPER_BG,
@@ -73,27 +72,6 @@ export default function SigninScreen({ onSignIn }: { onSignIn: (user: AuthUser) 
         animation: "screenIn 0.3s ease-out",
       }}
     >
-      <PaperDecor />
-
-      <svg style={{ position: "absolute", top: 100, left: 34, opacity: 0.5 }} width="18" height="18" viewBox="0 0 18 18">
-        <path d="M9 0 L11 7 L18 9 L11 11 L9 18 L7 11 L0 9 L7 7 Z" fill="oklch(0.72 0.13 55)" />
-      </svg>
-      <svg style={{ position: "absolute", top: 150, right: 40, opacity: 0.45 }} width="34" height="16" viewBox="0 0 34 16">
-        <path d="M1 8 Q 8 0, 17 8 T 33 8" stroke="oklch(0.6 0.1 45)" strokeWidth="2" fill="none" strokeLinecap="round" strokeDasharray="1 5" />
-      </svg>
-      <svg style={{ position: "absolute", bottom: 210, left: 44, opacity: 0.4 }} width="16" height="16" viewBox="0 0 16 16">
-        <circle cx="8" cy="8" r="6.5" stroke="oklch(0.5 0.1 300)" strokeWidth="1.6" fill="none" strokeDasharray="2 3.4" />
-      </svg>
-      <svg style={{ position: "absolute", top: 250, left: 60, opacity: 0.35 }} width="26" height="26" viewBox="0 0 26 26">
-        <path
-          d="M13 2 C13 8 20 6 20 13 C20 20 13 18 13 24 C13 18 6 20 6 13 C6 6 13 8 13 2 Z"
-          stroke="oklch(0.55 0.1 320)"
-          strokeWidth="1.4"
-          fill="none"
-          strokeDasharray="1.5 3"
-        />
-      </svg>
-
       <Image src="/logo.png" alt="synapse" width={440} height={293} priority style={{ width: 440, height: "auto" }} />
 
       <p
