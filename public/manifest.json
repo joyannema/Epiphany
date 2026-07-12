@@ -1,6 +1,6 @@
 {
-  "name": "Synapse",
-  "short_name": "Synapse",
+  "name": "epiphany",
+  "short_name": "epiphany",
   "description": "The autonomous life logger that organizes your thoughts at the speed of speech.",
   "start_url": "/",
   "display": "standalone",

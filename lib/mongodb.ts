@@ -31,6 +31,6 @@ export default clientPromise;
 
 export async function getDb(): Promise<Db> {
   const connectedClient = await clientPromise;
-  const dbName = process.env.MONGODB_DB_NAME ?? "synapse";
+  const dbName = process.env.MONGODB_DB_NAME ?? "epiphany";
   return connectedClient.db(dbName);
 }

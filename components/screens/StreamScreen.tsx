@@ -68,7 +68,7 @@ export default function StreamScreen({
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/logo-mark.svg"
-              alt="synapse"
+              alt="epiphany"
               width={64}
               height={45}
               style={{ width: 64, height: "auto", marginBottom: 8 }}

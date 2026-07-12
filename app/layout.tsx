@@ -2,13 +2,13 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "synapse",
+  title: "Epiphany",
   description: "The autonomous life logger that organizes your thoughts at the speed of speech.",
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
-    title: "synapse",
+    title: "Epiphany",
   },
 };
 

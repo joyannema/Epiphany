@@ -26,7 +26,7 @@ async function main() {
   const uri = process.env.MONGODB_URI;
   if (!uri) throw new Error("MONGODB_URI is not set in .env.local");
 
-  const dbName = process.env.MONGODB_DB_NAME ?? "synapse";
+  const dbName = process.env.MONGODB_DB_NAME ?? "epiphany";
   const client = new MongoClient(uri);
 
   try {

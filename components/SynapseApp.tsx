@@ -87,9 +87,9 @@ export default function SynapseApp() {
   const [activeCategory, setActiveCategory] = useState<CategorySlug | null>(null);
   const [activeNoteId, setActiveNoteId] = useState<number | null>(null);
   const [noteOrigin, setNoteOrigin] = useState<Screen | null>(null);
-  const [muted, setMuted] = useState(() => typeof window !== "undefined" && window.localStorage.getItem("synapse:muted") === "1");
+  const [muted, setMuted] = useState(() => typeof window !== "undefined" && window.localStorage.getItem("epiphany:muted") === "1");
 
-  const [profile, setProfile] = useState<Profile>({ name: "alex rivera", username: "alexrivera", email: "alex@synapse.app", bio: "" });
+  const [profile, setProfile] = useState<Profile>({ name: "alex rivera", username: "alexrivera", email: "alex@epiphany.app", bio: "" });
   const [draftProfile, setDraftProfile] = useState<Profile | null>(null);
   const [accountSaved, setAccountSaved] = useState(false);
   const [insights, setInsights] = useState<string[] | null>(null);
@@ -287,7 +287,7 @@ export default function SynapseApp() {
   const toggleMute = () => {
     setMuted((prev) => {
       const next = !prev;
-      window.localStorage.setItem("synapse:muted", next ? "1" : "0");
+      window.localStorage.setItem("epiphany:muted", next ? "1" : "0");
       if (next) {
         moodFadeTokenRef.current.cancelled = true;
         moodAudioRef.current?.pause();
