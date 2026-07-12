@@ -508,31 +508,6 @@ export default function SynapseApp() {
     // Update UI immediately
     setNotes((prev) => [newNote, ...prev]);
 
-    // Save to MongoDB
-    try {
-      const response = await fetch("/api/notes", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          userId,
-          category: newNote.category,
-          title: newNote.title,
-          text: newNote.text,
-          tags: newNote.tags,
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to save note");
-      }
-
-      console.log("Saved note to DB");
-    } catch (err) {
-      console.error("Database save failed:", err);
-    }
-
     setOverlayOpen(false);
     setIsRecording(false);
     setTranscript("");

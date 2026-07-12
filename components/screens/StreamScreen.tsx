@@ -105,6 +105,15 @@ export default function StreamScreen({
         <svg style={{ position: "absolute", top: 150, left: 22, opacity: 0.4, zIndex: 1 }} width="15" height="15" viewBox="0 0 15 15">
           <circle cx="7.5" cy="7.5" r="6.2" stroke="oklch(0.5 0.1 300)" strokeWidth="1.4" fill="none" strokeDasharray="1.6 3" />
         </svg>
+        <svg style={{ position: "absolute", top: 9, left: 128, opacity: 0.4, zIndex: 1 }} width="13" height="13" viewBox="0 0 20 20">
+          <path d="M10 0 L12 8 L20 10 L12 12 L10 20 L8 12 L0 10 L8 8 Z" fill="oklch(0.72 0.13 55)" />
+        </svg>
+        <svg style={{ position: "absolute", top: 110, right: 24, opacity: 0.45, zIndex: 1 }} width="30" height="14" viewBox="0 0 34 16">
+          <path d="M1 8 Q 8 0, 17 8 T 33 8" stroke="oklch(0.6 0.1 45)" strokeWidth="2" fill="none" strokeLinecap="round" strokeDasharray="1 5" />
+        </svg>
+        <svg style={{ position: "absolute", top: 116, left: 232, opacity: 0.35, zIndex: 1 }} width="10" height="10" viewBox="0 0 16 16">
+          <circle cx="8" cy="8" r="6.5" stroke="oklch(0.5 0.1 300)" strokeWidth="1.6" fill="none" strokeDasharray="2 3.4" />
+        </svg>
 
         <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", padding: "10px 20px 6px" }}>
           <span style={{ fontFamily: "'Space Grotesk',sans-serif", fontWeight: 600, fontSize: 13.5, color: "oklch(0.35 0.02 55)", textTransform: "lowercase" }}>
